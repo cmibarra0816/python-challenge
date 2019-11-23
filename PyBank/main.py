@@ -35,9 +35,16 @@ profit_average = 0
 with open(budget_csv, 'r') as Bank_Report:
     csvreader = csv.DictReader(Bank_Report)
     for row in csvreader:
+       #calculating total months
        total_months = total_months + 1
-       
+       #calculating total profit
        total_profit = total_profit + int(row["Profit/Losses"])
+       #calculating profit change
+       profit_change = float(row["Profit/Losses"]) - previous_profit
+       #calculating previous profit
+       previous_profit = float(row["Profit/Losses"])
 
 print (total_months)
 print (total_profit)
+print (profit_change)
+print (previous_profit)
